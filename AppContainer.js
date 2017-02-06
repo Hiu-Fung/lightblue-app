@@ -25,6 +25,7 @@ import {
 
 var Feed = require('./Feed');
 var Search = require('./Search');
+var Blog = require('./Blog');
 
 class AppContainer extends Component {
 	constructor(props){
@@ -70,6 +71,22 @@ class AppContainer extends Component {
                         }}
                     />
                 </TabBarIOS.Item>
+				<TabBarIOS.Item
+					title="Blog"
+					selected={this.state.selectedTab == 'blog'}
+					icon={require('image!search')}
+					onPress={()=> this.setState({selectedTab: 'blog'})}
+				>
+					<NavigatorIOS
+						style={{
+                            flex: 1
+                        }}
+						initialRoute={{
+                            component: Blog,
+                            title: 'Blog'
+                        }}
+					/>
+				</TabBarIOS.Item>
 			</TabBarIOS>
 		);
 	}
