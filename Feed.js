@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 var PushPayload = require('./PushPayload');
+var Blog = require('./Blog');
 
 import {
 	Text,
@@ -70,13 +71,17 @@ class Feed extends Component {
 
     pressRow(rowData){
         console.log(rowData);
-        this.props.navigator.push({
-            title: 'Push Event',
-            component: PushPayload,
-            passProps: {
-                pushEvent: rowData
-            }
-        });
+		this.props.navigator.replace({
+			title: 'Blog',
+			component: Blog
+		});
+        // this.props.navigator.push({
+        //     title: 'Push Event',
+        //     component: PushPayload,
+        //     passProps: {
+        //         pushEvent: rowData
+        //     }
+        // });
     }
 
 	renderRow(rowData){
